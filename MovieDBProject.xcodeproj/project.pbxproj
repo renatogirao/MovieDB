@@ -17,7 +17,7 @@
 		575E4E8D294AE972008805BA /* MovieDBProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E4E8C294AE972008805BA /* MovieDBProjectUITestsLaunchTests.swift */; };
 		575E4E9F294AE9F9008805BA /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E4E9E294AE9F9008805BA /* MovieViewModel.swift */; };
 		575E4EA1294C4968008805BA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E4EA0294C4968008805BA /* Movie.swift */; };
-		575E4EA3294CF9BF008805BA /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E4EA2294CF9BF008805BA /* Discover.swift */; };
+		57E1A7742968D5F1004166B5 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1A7732968D5F1004166B5 /* Results.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		575E4E8C294AE972008805BA /* MovieDBProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		575E4E9E294AE9F9008805BA /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		575E4EA0294C4968008805BA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		575E4EA2294CF9BF008805BA /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		57E1A7732968D5F1004166B5 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				575E4E9E294AE9F9008805BA /* MovieViewModel.swift */,
+				57E1A7732968D5F1004166B5 /* Results.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				575E4EA0294C4968008805BA /* Movie.swift */,
-				575E4EA2294CF9BF008805BA /* Discover.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,9 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E1A7742968D5F1004166B5 /* Results.swift in Sources */,
 				575E4E6E294AE971008805BA /* MovieListViewController.swift in Sources */,
 				575E4E6A294AE971008805BA /* AppDelegate.swift in Sources */,
-				575E4EA3294CF9BF008805BA /* Discover.swift in Sources */,
 				575E4E6C294AE971008805BA /* SceneDelegate.swift in Sources */,
 				575E4E9F294AE9F9008805BA /* MovieViewModel.swift in Sources */,
 				575E4EA1294C4968008805BA /* Movie.swift in Sources */,

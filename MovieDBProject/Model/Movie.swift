@@ -7,13 +7,13 @@
 
 import UIKit
 
-class Movie: Codable {
+struct Movie: Codable {
     
     let id: Int
     let title: String
     let overview: String?
     let image: String
-    let voteAverage: Float
+    let voteAverage: Float?
     let releaseDate: String?
     
     private enum CodingKeys: String, CodingKey {

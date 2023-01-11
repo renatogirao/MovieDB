@@ -11,26 +11,23 @@ class MoviewViewModel: ObservableObject {
     
     var movies: [Movie]?
     
-    func fetchMovie() {
+    func getMovies(completion: @escaping (Results) -> ()) {
         let key = "d830c306bbead007f72d9ad843bc6985"
-        let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=\(key)")
+        let endpoint = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(key)&language=pt-BR&page=1")
         
-        URLSession.shared.dataTask(with: url!) { data, response, error in
+        URLSession.shared.dataTask(with: endpoint!) { data, response, error in
             if let error = error {
                 print(error)
                 return
             }
             if let data = data {
                 do {
-                    let discover = try JSONDecoder().decode(Discover.self, from: data)
-                    print(discover.results.count)
-                    self.movies = discover.results
+                    let moviesResponse = try JSONDecoder().decode(Results.self, from: data)
+                    self.movies = moviesResponse.results
                 } catch (let error) {
-                    print(error)
                     return
                 }
             } else {
-                print("error")
                 return
             }
         } .resume()

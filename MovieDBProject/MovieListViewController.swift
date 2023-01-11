@@ -20,12 +20,24 @@ class MovieListViewController: UIViewController {
         return tableView
     }()
     
+    private var results: Results?
+    private var listMovies: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
-        viewModel.fetchMovie()
+        
+        getApi()
         addSubviews()
         setupConstraints()
+    }
+    
+    private func getApi() {
+        self.viewModel.getMovies() { result in
+            DispatchQueue.main.async {
+                self.results = result
+            }
+        }
     }
     
     private func addSubviews() {
@@ -51,16 +63,39 @@ extension MovieListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.viewModel.movies?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
-        cell.textLabel?.text = "Celula \(indexPath.section), \(indexPath.item)"
+        let model = self.viewModel.movies?[indexPath.row]
+        cell.textLabel?.text = model?.title
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "Footer"
     }
 }
 
 extension MovieListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(tableView.indexPathsForSelectedRows)
+    }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.item % 2 == 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
 }
